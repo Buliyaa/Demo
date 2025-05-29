@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Steps - Renting Simulation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        h1 {
+            text-align: center;
+            color: #0077cc;
+        }
+        #npc {
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding: 10px;
+            background: #eef6fb;
+            border-left: 5px solid #0077cc;
+            border-radius: 6px;
+        }
+        .option {
+            background: #e0ecf4;
+            border: none;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 6px;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .option:hover {
+            background: #d0e3f0;
+        }
+        .feedback {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>First Steps Simulation</h1>
+    <div id="npc">Landlord: Hi there! Ready to sign the lease today?</div>
+    <button class="option" onclick="respond(1)">Yes, I'm ready to sign.</button>
+    <button class="option" onclick="respond(2)">I have a few questions first.</button>
+    <button class="option" onclick="respond(3)">I'd like more time before deciding.</button>
+    <div id="feedback" class="feedback"></div>
+</div>
+
+<script>
+    function respond(option) {
+        const npc = document.getElementById("npc");
+        const feedback = document.getElementById("feedback");
+
+        if (option === 1) {
+            npc.innerText = "Landlord: Great! But we need to rush — no time to read everything.";
+            feedback.innerText = "⚠️ A risky move. Never sign without reading. Ask questions.";
+        } else if (option === 2) {
+            npc.innerText = "Landlord: Sure, ask away! Transparency is important.";
+            feedback.innerText = "✅ Good choice. Asking questions helps you avoid bad deals.";
+        } else if (option === 3) {
+            npc.innerText = "Landlord: Hmm... well, others are interested too.";
+            feedback.innerText = "⚠️ Be cautious of pressure tactics. Take your time to decide.";
+        }
+    }
+</script>
+
+</body>
+</html>
